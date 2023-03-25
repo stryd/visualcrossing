@@ -28,11 +28,11 @@ func (c *Client) SetTimeout(to time.Duration) {
 	c.client.Timeout = to
 }
 
-func (c *Client) GetTimeLineForecast(lat, lng string, t *time.Time, args Arguments) (forecast *Forecast, err error) {
-	return c.GetTimeLineForecastCtx(context.Background(), lat, lng, t, args)
+func (c *Client) GetTimelineForecast(lat, lng string, t *time.Time, args Arguments) (forecast *Forecast, err error) {
+	return c.GetTimelineForecastCtx(context.Background(), lat, lng, t, args)
 }
 
-func (c *Client) GetTimeLineForecastCtx(ctx context.Context, lat, lng string, t *time.Time, args Arguments) (forecast *Forecast, err error) {
+func (c *Client) GetTimelineForecastCtx(ctx context.Context, lat, lng string, t *time.Time, args Arguments) (forecast *Forecast, err error) {
 	path := fmt.Sprintf("%s,%s", lat, lng)
 	if t != nil {
 		path += fmt.Sprintf("/%d", t.Unix())
